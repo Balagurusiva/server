@@ -1,10 +1,12 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import Movie from './movie_schema.js'
-
+import cors from 'cors'
 
 const app = express()
-
+app.use(cors({
+  origin: '*'
+}));
 
 app.get('/', async (req,res) => {
      const movie_data = await Movie.find({})
